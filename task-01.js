@@ -1,3 +1,4 @@
+// <<<<<<< Updated upstream
 //Создайте массив styles с элементами «Джаз» и «Блюз».
 //Добавьте «Рок-н-ролл» в конец.
 //Замените значение «Блюз» на «Классика».
@@ -20,7 +21,6 @@
 //Напишите функцию min(a, b), которая возвращает
 //меньшее из чисел a, b
 //нужно добавить проверку, что функция получает числа
-
 
 // function min(a, b) {
 //     return a < b ? a : b;
@@ -49,16 +49,14 @@
 // }
 // logItems(['Джаз', 'Блюз', 'Рок-н-ролл', 'Регги', 'Рэп']);
 
-
 //Напиши функцию findSmallerNumber(numbers)
 //которая ищет самое маленькое число в массиве
 //Добавь проверку что функция получает массив
 //const numbers = [2, 5, 35, 56, 12, 24, 7, 80, 3];
 
-
 // function findSmallerNumber(numbers) {
 //     if (!Array.isArray(numbers)) return;
-    
+
 //     let smallestNumber = numbers[0];
 //     for (let number of numbers) {
 //         if (number < smallestNumber) {
@@ -76,21 +74,132 @@
 //аргументов и возвращает их среднее значение.
 //Добавить проверку, что аргументы это числа.
 
-function caculculateAverage(...numbers) {
-console.log(numbers);
-// console.log(arguments);
-    
-    let total = 0;
-    let culc = 0;
+// function caculculateAverage(...numbers) {
+// console.log(numbers);
+// // console.log(arguments);
 
-    for (let number of numbers) { 
-        if (typeof number !== 'number') {
-            continue;
-        }
-        total += number;
-        culc += 1;
+//     let total = 0;
+//     let culc = 0;
+
+//     for (let number of numbers) {
+//         if (typeof number !== 'number') {
+//             continue;
+//         }
+//         total += number;
+//         culc += 1;
+//     }
+//     console.log(total / culc);
+// };
+
+// caculculateAverage(2, 10, 45, 31, 55, 7, 'abc', 'b');
+
+const people = [
+  {
+    name: "Alex",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Jhon",
+    know: [],
+  },
+  {
+    name: "Eva",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Ivan",
+    know: ["Jhon", "Eva"],
+  },
+];
+const no = "ne znaydeno";
+
+function searchNarc(items) {
+  let narcName = "";
+
+  for (const { name, know } of items) {
+    if (know.length === 0) {
+      narcName = name;
     }
-    console.log(total / culc);
-};
+  }
+  if (narcName === "") {
+    return no;
+  }
 
-caculculateAverage(2, 10, 45, 31, 55, 7, 'abc', 'b');
+
+
+
+  for (const { name, know } of items) {
+    if (name === narcName) {
+      continue;
+    }
+    if (!know.includes(narcName)) {
+      return no;
+    }
+    
+
+    return narcName;
+  }
+}
+
+//нарцис  'Jhon'
+const people1 = [
+  {
+    name: "Alex",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Jhon",
+    know: [],
+  },
+  {
+    name: "Eva",
+    know: [],
+  },
+  {
+    name: "Ivan",
+    know: ["Jhon", "Eva"],
+  },
+];
+//немає нарциса'
+
+const people3 = [
+  {
+    name: "Alex",
+    know: ["Alex", "Eva"],
+  },
+  {
+    name: "Jhon",
+    know: [],
+  },
+  {
+    name: "Eva",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Ivan",
+    know: ["Jhon", "Eva"],
+  },
+];
+//немає нарциса
+const people4 = [
+  {
+    name: "Alex",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Jhon",
+    know: ["Eva"],
+  },
+  {
+    name: "Eva",
+    know: ["Alex", "Jhon"],
+  },
+  {
+    name: "Ivan",
+    know: ["Jhon", "Eva"],
+  },
+];
+//немає нарциса'
+// Нарциса знають всі, нарцис незнає нікого
+
+console.log("object :>> ", searchNarc(people));
