@@ -93,24 +93,24 @@
 
 // caculculateAverage(2, 10, 45, 31, 55, 7, 'abc', 'b');
 
-const people = [
-  {
-    name: "Alex",
-    know: ["Alex", "Jhon"],
-  },
-  {
-    name: "Jhon",
-    know: [],
-  },
-  {
-    name: "Eva",
-    know: ["Alex", "Jhon"],
-  },
-  {
-    name: "Ivan",
-    know: ["Jhon", "Eva"],
-  },
-];
+// const people = [
+//   {
+//     name: "Alex",
+//     know: ["Alex", "Jhon"],
+//   },
+//   {
+//     name: "Jhon",
+//     know: [],
+//   },
+//   {
+//     name: "Eva",
+//     know: ["Alex", "Jhon"],
+//   },
+//   {
+//     name: "Ivan",
+//     know: ["Jhon", "Eva"],
+//   },
+// ];
 // const no = "ne znaydeno";
 
 // function searchNarc(items) {
@@ -201,31 +201,54 @@ const people4 = [
 
 // console.log("object :>> ", searchNarc(people));
 
-const no = "ne znaydeno";
+// const no = "ne znaydeno";
 
-const  searchNarc = (items) => {
-  let narcName = "";
+// const  searchNarc = (items) => {
+//   let narcName = "";
   
-  items.find(({ name, know }) => {
-    if (know.length === 0) {
-      narcName = name;
-    }
-});
+//   items.find(({ name, know }) => {
+//     if (know.length === 0) {
+//       narcName = name;
+//     }
+// });
 
-  if (narcName === "") {
-    return no;
-  }  
+//   if (narcName === "") {
+//     return no;
+//   }
 
-  let result = items.filter(({ name, know }) => {
-    return know.includes(narcName);
-  });
+//   let result = items.filter(({ name, know }) => {
+//     return know.includes(narcName);
+//   });
 
-  if (result.length === items.length - 1) {
-    return narcName;
+//   if (result.length === items.length - 1) {
+//     return narcName;
+//   }
+
+//   return no;
+
+// }
+
+// console.log("object :>> ", searchNarc(people4));
+
+//Напишите функцию findTheColor()
+//которая принимает название цвета
+//определяет его наличие в массиве
+//если цвет есть, усталавливет его как фон документа
+//если цвета нет выводит console.error('Такой цвет не найден');
+//и устанавливает цвет документа красный
+// document.body.style.background = 'red';
+const colors = ['blue', 'yellow', 'olive', 'fuchsia', 'lime', 'aqua', 'maroon']
+const findTheColor = (colors, findColor) => {
+  const inArray = colors.includes(findColor)
+  document.body.style.background = inArray ? findColor : 'red'
+  if (!inArray) {
+    console.error(`Такой цвет не найден`)
   }
-
-  return no;
-
+  // if (colors.includes(findColor)) {
+  //   document.body.style.background = findColor
+  // } else {
+  //   document.body.style.background = 'red'
+  //   console.error(`Такой цвет не найден`)
+  // }
 }
-
-console.log("object :>> ", searchNarc(people4));
+findTheColor(colors, 'lime')
