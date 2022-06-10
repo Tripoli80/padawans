@@ -111,35 +111,32 @@ const people = [
     know: ["Jhon", "Eva"],
   },
 ];
-const no = "ne znaydeno";
+// const no = "ne znaydeno";
 
-function searchNarc(items) {
-  let narcName = "";
+// function searchNarc(items) {
+//   let narcName = "";
+  
+//   for (const { name, know } of items) {
+//     if (know.length === 0) {
+//       narcName = name;
+//     }
+//   }
+//   if (narcName === "") {
+//     return no;
+//   }
 
-  for (const { name, know } of items) {
-    if (know.length === 0) {
-      narcName = name;
-    }
-  }
-  if (narcName === "") {
-    return no;
-  }
-
-
-
-
-  for (const { name, know } of items) {
-    if (name === narcName) {
-      continue;
-    }
-    if (!know.includes(narcName)) {
-      return no;
-    }
+//   for (const { name, know } of items) {
+//     if (name === narcName) {
+//       continue;
+//     }
+//     if (!know.includes(narcName)) {
+//       return no;
+//     }
     
 
-    return narcName;
-  }
-}
+//     return narcName;
+//   }
+// }
 
 //нарцис  'Jhon'
 const people1 = [
@@ -202,4 +199,33 @@ const people4 = [
 //немає нарциса'
 // Нарциса знають всі, нарцис незнає нікого
 
-console.log("object :>> ", searchNarc(people));
+// console.log("object :>> ", searchNarc(people));
+
+const no = "ne znaydeno";
+
+const  searchNarc = (items) => {
+  let narcName = "";
+  
+  items.find(({ name, know }) => {
+    if (know.length === 0) {
+      narcName = name;
+    }
+});
+
+  if (narcName === "") {
+    return no;
+  }  
+
+  let result = items.filter(({ name, know }) => {
+    return know.includes(narcName);
+  });
+
+  if (result.length === items.length - 1) {
+    return narcName;
+  }
+
+  return no;
+
+}
+
+console.log("object :>> ", searchNarc(people4));
