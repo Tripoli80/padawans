@@ -56,18 +56,41 @@
 //const numbers = [2, 5, 35, 56, 12, 24, 7, 80, 3];
 
 
-function findSmallerNumber(numbers) {
-    if (!Array.isArray(numbers)) return;
+// function findSmallerNumber(numbers) {
+//     if (!Array.isArray(numbers)) return;
     
-    let smallestNumber = numbers[0];
-    for (let number of numbers) {
-        if (number < smallestNumber) {
-            smallestNumber = number;
-        };
+//     let smallestNumber = numbers[0];
+//     for (let number of numbers) {
+//         if (number < smallestNumber) {
+//             smallestNumber = number;
+//         };
 
+//     }
+//     return smallestNumber;
+// }
+
+// console.log(findSmallerNumber([5, 35, 56, 12, 24, 7, 80, 3]));
+
+//Напишите функцию caculculateAverage()
+//которая принимает произвольное количество
+//аргументов и возвращает их среднее значение.
+//Добавить проверку, что аргументы это числа.
+
+function caculculateAverage(...numbers) {
+console.log(numbers);
+// console.log(arguments);
+    
+    let total = 0;
+    let culc = 0;
+
+    for (let number of numbers) { 
+        if (typeof number !== 'number') {
+            continue;
+        }
+        total += number;
+        culc += 1;
     }
-    return smallestNumber;
-}
+    console.log(total / culc);
+};
 
-console.log(findSmallerNumber([5, 35, 56, 12, 24, 7, 80, 3]));
-
+caculculateAverage(2, 10, 45, 31, 55, 7, 'abc', 'b');
